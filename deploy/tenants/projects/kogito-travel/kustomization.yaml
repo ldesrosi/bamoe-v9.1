@@ -9,14 +9,14 @@ resources:
 patches:
 - target:
     kind: Namespace
-    name: default-dev
+    name: default-name
   patch: |-
     - op: replace
       path: /metadata/name
       value: app-bamoe-kogito-travel
 - target:
     kind: AppProject
-    name: default-dev
+    name: default-name
   patch: |-
     - op: replace
       path: /metadata/name

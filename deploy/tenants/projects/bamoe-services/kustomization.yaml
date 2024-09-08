@@ -3,7 +3,7 @@ kind: Kustomization
 
 namespace: app-bamoe-services
 
-bases:
+resources:
 - ../../base
 
 patches:

@@ -3,7 +3,7 @@ kind: Kustomization
 
 namespace: app-bamoe-kogito-travel
 
-bases:
+resources:
 - ../../base
 
 patches:

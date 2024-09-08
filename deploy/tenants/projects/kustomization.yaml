@@ -1,4 +1,4 @@
-bases:
+resources:
 - ./bamoe-canvas
 - ./bamoe-services
 - ./kogito-travel

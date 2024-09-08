@@ -3,7 +3,7 @@ kind: Kustomization
 
 namespace: app-bamoe-canvas
 
-bases:
+resources:
 - ../../base
 
 patches:

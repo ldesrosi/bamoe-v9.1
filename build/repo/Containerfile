@@ -1,0 +1,18 @@
+# Use the latest Red Hat UBI minimal image as a parent image
+FROM quay.io/bamoe/maven-repository:9.1.0-ibm-0001
+
+# Argument for configuring the port
+ARG MAVEN_REPO_PORT=31314
+
+USER root 
+
+# Apache configuration adjustments
+RUN chmod 644 /etc/httpd/conf/httpd.conf \
+    && sed -i "s/Listen 80/Listen $MAVEN_REPO_PORT/g" /etc/httpd/conf/httpd.conf \
+    && sed -i "s/#ServerName www.example.com:80/ServerName 127.0.0.1:$MAVEN_REPO_PORT/g" /etc/httpd/conf/httpd.conf 
+    && sed -i "/ServerName 127.0.0.1:$MAVEN_REPO_PORT/a Header set Content-Security-Policy \"frame-ancestors 'self';\"" /etc/httpd/conf/httpd.conf \
+    && chmod 444 /etc/httpd/conf/httpd.conf
+
+USER 1000
+
+EXPOSE $MAVEN_REPO_PORT

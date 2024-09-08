@@ -1,0 +1,28 @@
+kind: AppProject
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: default-name
+  namespace: gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Default Project
+  sourceNamespaces:
+  - default-name
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: default-name
+    server: '*'
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  clusterResourceWhitelist:
+  - group: ''
+    kind: Namespace
+  # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
+  namespaceResourceBlacklist:
+  - group: ''
+    kind: ResourceQuota
+  - group: ''
+    kind: LimitRange
+  - group: ''
+    kind: NetworkPolicy

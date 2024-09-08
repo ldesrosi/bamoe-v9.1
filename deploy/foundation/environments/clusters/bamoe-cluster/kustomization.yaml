@@ -1,0 +1,16 @@
+resources:
+- ../../../base
+
+components:
+- ../../../components/operators/cert-manager
+- ../../../components/operators/kafka
+- ../../../components/operators/postgresql
+- ../../../components/operators/keycloak
+- ../../../components/operators/gitops
+
+patches:
+  - path: ./gitops-overlay.yaml
+    target:
+      kind: ArgoCD
+      name: cluster-gitops
+      namespace: gitops

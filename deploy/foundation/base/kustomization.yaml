@@ -1,0 +1,13 @@
+kind: Kustomization
+sortOptions:
+  order: legacy
+  legacySortOptions:
+    orderFirst:
+    - CustomResourceDefinition
+    - Namespace
+    - ClusterIssuer
+    - Certificate
+
+#resources: 
+ #- https://raw.githubusercontent.com/operator-framework/operator-lifecycle-manager/master/deploy/upstream/quickstart/crds.yaml
+ #- https://raw.githubusercontent.com/operator-framework/operator-lifecycle-manager/master/deploy/upstream/quickstart/olm.yaml

@@ -1,0 +1,4 @@
+bases:
+- ./bamoe-canvas
+- ./bamoe-services
+- ./kogito-travel
